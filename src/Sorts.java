@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import java.lang.reflect.Array;
 
 public class Sorts {
 
@@ -30,8 +31,8 @@ public class Sorts {
     * Description: Sorts the list of size elements contained in arr using the
     * bubble sort algorithm
     */
-   
-   //Known bug: last value in list is not getting sorted
+
+   // Known bug: last value in list is not getting sorted
    public static <Type extends Comparable<? super Type>> void bubbleSort(
          Type[] arr, int size) {
       boolean done = false;
@@ -94,11 +95,14 @@ public class Sorts {
     */
    private static <Type extends Comparable<? super Type>> void mergeSortedHalves(
          Type[] arr, int left, int middle, int right) {
-      Type[] temp = (Type[]) new Object[right - left + 1];
+      
+      @SuppressWarnings("unchecked")
+      Type[] temp = (Type[])new Comparable[right - left + 1];
       int index1 = left;
       int index2 = middle + 1;
       int index = 0;
-      while (arr[index1] != null && arr[index2] != null) {
+      
+      while (index1 < middle + 1 && index2 < right + 1) {
          if (arr[index1].compareTo(arr[index2]) < 0) {
             temp[index] = arr[index1];
             index1++;
@@ -109,18 +113,27 @@ public class Sorts {
          }
          index++;
       }
-      while (arr[index1] != null) {
-         temp[index] = arr[index1];
-         index1++;
-         index++;
+      
+      if (index1 < middle + 1) {
+         while(index1 < middle + 1) {
+            temp[index] = arr[index1];
+            index1++;
+            index++;
+         }
       }
-      while (arr[index2] != null) {
-         temp[index] = arr[index2];
-         index2++;
-         index++;
+      
+      else {
+         while(index2 < right + 1) {
+            temp[index] = arr[index2];
+            index2++;
+            index++;
+         }
       }
-      for (int i = 0; i < right; i++) {
-         arr[i] = temp[i];
+
+      int j = left;
+      for(int i = 0; i < temp.length; i++) {
+         arr[j] = temp[i];
+         j++;
       }
    }
 
@@ -144,12 +157,6 @@ public class Sorts {
       }
    }
 
-   private static <Type extends Comparable<? super Type>> int splitList(
-         Type[] arr, int first, int last) {
-      // TODO Auto-generated method stub
-      return 0;
-   }
-
    /*
     * Description: Preconditions: None Postcondition: arr[right] is the pivot.
     */
@@ -163,8 +170,15 @@ public class Sorts {
        */
    }
    
-   private static <Type extends Comparable<? super Type>> void printArray(Type[] arr) {
-      for(int i = 0; i < arr.length; i++) {
+   private static <Type extends Comparable<? super Type>> int splitList(
+         Type[] arr, int first, int last) {
+      // TODO Auto-generated method stub
+      return 0;
+   }
+
+   private static <Type extends Comparable<? super Type>> void printArray(
+         Type[] arr, int size) {
+      for (int i = 0; i < size; i++) {
          System.out.println(arr[i]);
       }
    }

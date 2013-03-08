@@ -54,37 +54,40 @@ public class SortTimes1 {
             qs.get(i)[j] = arr.get(i)[j];
          }
       }
-      
-      // time the operations
-      startTime = System.nanoTime();
-      Sorts.selectionSort(ss.get(0), N[0]);
-      endTime = System.nanoTime();
-      T_ss[0] = (endTime - startTime) / 1000000;
 
-      startTime = System.nanoTime();
-      Sorts.selectionSort(ss.get(1), N[1]);
-      endTime = System.nanoTime();
-      T_ss[1] = (endTime - startTime) / 1000000;
-
-      startTime = System.nanoTime();
-      Sorts.selectionSort(ss.get(2), N[2]);
-      endTime = System.nanoTime();
-      T_ss[2] = (endTime - startTime) / 1000000;
-
-      startTime = System.nanoTime();
-      Sorts.selectionSort(ss.get(3), N[3]);
-      endTime = System.nanoTime();
-      T_ss[3] = (endTime - startTime) / 1000000;
-
-      startTime = System.nanoTime();
-      Sorts.selectionSort(ss.get(4), N[4]);
-      endTime = System.nanoTime();
-      T_ss[4] = (endTime - startTime) / 1000000;
-
-      System.out.println("N=" + N[0] + ", T_ss=" + T_ss[0]);
-      System.out.println("N=" + N[1] + ", T_ss=" + T_ss[1]);
-      System.out.println("N=" + N[2] + ", T_ss=" + T_ss[2]);
-      System.out.println("N=" + N[3] + ", T_ss=" + T_ss[3]);
-      System.out.println("N=" + N[4] + ", T_ss=" + T_ss[4]);
+      // time the operations for every sorting method, every array at size N[i]
+      for (int i = 0; i < 5; i++) {
+         startTime = System.nanoTime();
+         Sorts.selectionSort(ss.get(i), N[i]);
+         endTime = System.nanoTime();
+         T_ss[i] = (endTime - startTime) / 1000000;
+         
+         startTime = System.nanoTime();
+         Sorts.bubbleSort(bs.get(i), N[i]);
+         endTime = System.nanoTime();
+         T_bs[i] = (endTime - startTime) / 1000000;
+         
+         startTime = System.nanoTime();
+         Sorts.insertionSort(is.get(i), N[i]);
+         endTime = System.nanoTime();
+         T_is[i] = (endTime - startTime) / 1000000;
+         
+         startTime = System.nanoTime();
+         Sorts.mergeSort(ms.get(i), N[i]);
+         endTime = System.nanoTime();
+         T_ms[i] = (endTime - startTime) / 1000000;
+         
+         startTime = System.nanoTime();
+         Sorts.insertionSort(qs.get(i), N[i]);
+         endTime = System.nanoTime();
+         T_qs[i] = (endTime - startTime) / 1000000;
+         
+         System.out.println("N=" + N[i] +
+         		", T_ss=" + T_ss[i] + 
+         		", T_bs=" + T_bs[i] +
+         		", T_is=" + T_is[i] +
+         		", T_ms=" + T_ms[i] +
+         		", T_qs=" + T_qs[i]);
+      }
    }
 }

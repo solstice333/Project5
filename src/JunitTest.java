@@ -9,13 +9,13 @@ public class JunitTest {
    public void test() {
 
       Random rand = new Random();
-      Integer[] arr = new Integer[100];
+      Integer[] arr = new Integer[10000];
 
       for (int i = 0; i < arr.length; i++) {
-         arr[i] = rand.nextInt(100);
+         arr[i] = rand.nextInt(10000);
       }
 
-      Sorts.bubbleSort(arr, arr.length);
+      Sorts.mergeSort(arr, arr.length);
 
       for (int i = 0; i < arr.length - 1; i++) {
          Assert.assertTrue(arr[i] <= arr[++i]);
