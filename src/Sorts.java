@@ -163,11 +163,21 @@ public class Sorts {
    private static <Type extends Comparable<? super Type>> void setPivotToEnd(
          Type[] arr, int left, int right) {
       int center = (left + right) / 2;
-      /*
-       * if(arr[center] < arr[left]) {
-       * 
-       * }
-       */
+      if(arr[center].compareTo(arr[left]) < 0) {
+         Type temp = arr[center];
+         arr[center] = arr[left];
+         arr[left] = temp;
+      }
+      if(arr[right].compareTo(arr[left]) < 0) {
+         Type temp = arr[right];
+         arr[right] = arr[left];
+         arr[left] = temp;
+      }
+      if(arr[center].compareTo(arr[right]) < 0) {
+         Type temp = arr[center];
+         arr[center] = arr[right];
+         arr[right] = temp;
+      }
    }
    
    private static <Type extends Comparable<? super Type>> int splitList(
