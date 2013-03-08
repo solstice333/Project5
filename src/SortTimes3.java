@@ -1,8 +1,15 @@
 import java.util.ArrayList;
 import java.util.Random;
 
+/*
+ * Description: runs sorts algorithms with input of unsorted lists 
+ */
 public class SortTimes3 {
 
+   /*
+    * Description: main method for SortTimes3 - inputs unsorted lists into sort algorithms and
+    * calculates the execution time
+    */
    public static void main(String[] args) {
       final int[] N = { 5000, 10000, 20000, 40000, 80000 };
       Random rand = new Random();
