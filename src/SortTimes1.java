@@ -1,3 +1,9 @@
+/*
+ * Casey Wu and Kevin Navaro
+ * Project 5
+ * CPE 103 section 04
+ */
+
 import java.util.ArrayList;
 
 /*
