@@ -1,8 +1,8 @@
 Project5
+Sorting and Time Complexity Tests
 ========
 
-Sorting and Time Complexity tests
-
+Sort Methods for:
 1. insertion
 2. selection
 3. bubble
