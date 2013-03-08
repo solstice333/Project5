@@ -1,6 +1,6 @@
 Project5
-Sorting and Time Complexity Tests
 ========
+Sorting and Time Complexity Tests
 
 Sort Methods for:
 1. insertion
