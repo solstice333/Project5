@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class SortTimes1 {
+public class SortTimes2 {
 
    public static void main(String[] args) {
       final int[] N = { 5000, 10000, 20000, 40000, 80000 };
@@ -27,20 +27,12 @@ public class SortTimes1 {
       long[] T_ms = new long[5];
       long[] T_qs = new long[5];
 
-      System.out.println("TEST1: presorted list");
+      System.out.println("TEST2: reversed sorted list");
 
       // create reference arrays
-      for (int i = 0; i < N[0]; i++) {
-         arr.get(0)[i] = i;
-      }
-
-      for (int i = 1; i < 5; i++) {
-
+      for (int i = 0; i < 5; i++) {
          for (int j = 0; j < N[i]; j++) {
-            if (j < N[i - 1])
-               arr.get(i)[j] = arr.get(i - 1)[j];
-            else
-               arr.get(i)[j] = j;
+            arr.get(i)[j] = N[i] - j;
          }
       }
 
@@ -86,6 +78,6 @@ public class SortTimes1 {
                + T_bs[i] + ", T_is=" + T_is[i] + ", T_ms=" + T_ms[i]
                + ", T_qs=" + T_qs[i]);
       }
-      System.out.println("END TEST1");
+      System.out.println("END TEST2");
    }
 }

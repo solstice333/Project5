@@ -15,7 +15,7 @@ public class JunitTest {
          arr[i] = rand.nextInt(10000);
       }
 
-      Sorts.mergeSort(arr, arr.length);
+      Sorts.bubbleSort(arr, arr.length);
 
       for (int i = 0; i < arr.length - 1; i++) {
          Assert.assertTrue(arr[i] <= arr[++i]);
