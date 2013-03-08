@@ -92,19 +92,19 @@ public class SortTimes3 {
             Sorts.quickSort(qs.get(i - 5 * ndx), N[i - 5 * ndx]);
             endTime = System.nanoTime();
             T_qs[i] = (endTime - startTime) / 1000000;
-            
-            System.out.println("Finished getting times for N[" + (i - 5*ndx) + "]");
          }
          start += 5;
-         System.out.println("Finished iteration " + (ndx + 1));
       }
-      System.out.println("Done!");
 
-      /*
-       * for (int i = 0; i < 5; i++) { System.out.println("N=" + N[i] +
-       * ", T_ss=" + T_ss[i] + ", T_bs=" + T_bs[i] + ", T_is=" + T_is[i] +
-       * ", T_ms=" + T_ms[i] + ", T_qs=" + T_qs[i]); }
-       * System.out.println("END TEST3");
-       */
+      for (int i = 0; i < 5; i++) {
+         for (int j = 0; j <= 10; j += 5) {
+            System.out.println("N=" + N[i] + ", T_ss=" + T_ss[j + i] + ", T_bs="
+                  + T_bs[j + i] + ", T_is=" + T_is[j + i] + ", T_ms=" + T_ms[j + i]
+                  + ", T_qs=" + T_qs[j + i]);
+         }
+         System.out.println();
+      }
+      System.out.println("END TEST3");
+
    }
 }

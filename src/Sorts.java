@@ -182,7 +182,6 @@ public class Sorts {
     * Exceptions: Should not throw any exceptions
     * Postconditions: Completely Sorted Array
     */
-    */
    public static <Type extends Comparable<? super Type>> void quickSort(
          Type[] arr, int size) {
       quickSort(arr, 0, size - 1);
